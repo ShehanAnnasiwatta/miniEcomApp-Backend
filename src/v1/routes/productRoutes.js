@@ -8,6 +8,6 @@ const { getAllProducts,
 const router = express.Router();
 
 router.route('/').post(createNewProduct).get(getAllProducts);
-router.route('/:productId').get(getOneProduct).put(updateOneProduct).delete(deleteOneProduct);
+router.route('/:id').get(getOneProduct).put(updateOneProduct).delete(deleteOneProduct);
 
 module.exports = router;

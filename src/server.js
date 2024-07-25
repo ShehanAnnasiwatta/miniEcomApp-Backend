@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require('mongoose')
 const v1productRouter = require("./v1/routes/productRoutes");
 const app = express();
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
 const PORT = process.env.PORT || 3000;
 const connect = require('./config/db/mongoConnect')
 // const multer = require('multer');
@@ -11,6 +14,9 @@ const connect = require('./config/db/mongoConnect')
 connect();
 
 // For testing purposes 
+app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(cors())
 app.use("/api/v1/products", v1productRouter);
 
 
